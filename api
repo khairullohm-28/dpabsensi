@@ -1,0 +1,23 @@
+const API_URL = "https://script.google.com/macros/s/AKfycby4-fnbo4pflvc3-JlcPa-gHYXklSZsZx-k05h96XgqFDAH2ONzyQfJf-GQmXGXjTfg/exec";
+
+// Contoh 1: Meminta daftar karyawan (Fungsi tanpa parameter)
+fetch(API_URL, {
+    method: 'POST',
+    body: JSON.stringify({
+        action: "getEmployeeList", // Nama fungsi di Apps Script
+        args: [] // Kosong karena fungsi ini tidak butuh parameter
+    })
+})
+.then(response => response.json())
+.then(data => console.log("Data Karyawan:", data));
+
+// Contoh 2: Menghapus karyawan (Fungsi dengan parameter)
+fetch(API_URL, {
+    method: 'POST',
+    body: JSON.stringify({
+        action: "deleteEmployee", // Nama fungsi di Apps Script
+        args: ["EMP123456789"] // ID Karyawan yang mau dihapus
+    })
+})
+.then(response => response.json())
+.then(data => console.log("Status Hapus:", data));
