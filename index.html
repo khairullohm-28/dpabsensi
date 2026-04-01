@@ -17,9 +17,11 @@
 </head>
 <body>
     <div id="app-root"></div>
-    <div id="modal-container"></div> <script>
-    // === GANTI DENGAN LINK DEPLOY TERBARUMU NANTI JIKA ADA ===
-    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbzxVKUcQt03avPmRUZ68LnDI6UmYtSNc0dOpANzyw1v0lYRSNtc8CRWOLKQHW0gY_Ir/exec";
+    <div id="modal-container"></div>
+
+    <script>
+    // === GANTI DENGAN LINK DEPLOY TERBARUMU JIKA BERUBAH ===
+    const GAS_API_URL = "https://script.google.com/macros/s/AKfycbwNPMtO6VhkqJnifmTuq8WO5kg6-8WYC_eIk8HkEHcjEFZ3cluJWTT5N4JofUyBchgs/exec";
 
     const google = {
         script: {
@@ -60,25 +62,14 @@
     function getCSS() {
         return `
         :root{
-            --primary:#dc2626;
-            --primary-dark:#b91c1c;
-            --success:#10b981;
-            --warning:#f59e0b;
-            --danger:#ef4444;
-            --info:#3b82f6;
-            
-            /* Warna Admin */
-            --bg-admin:#f1f5f9;
-            --card-bg-admin:#ffffff;
-            --text-admin:#0f172a;
-            --text-muted-admin:#64748b;
-            --border-admin:#e2e8f0;
+            --primary:#dc2626; --primary-dark:#b91c1c; --success:#10b981; --warning:#f59e0b; --danger:#ef4444; --info:#3b82f6;
+            --bg-admin:#f1f5f9; --card-bg-admin:#ffffff; --text-admin:#0f172a; --text-muted-admin:#64748b; --border-admin:#e2e8f0;
         }
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Poppins',sans-serif;background:var(--bg-admin);-webkit-font-smoothing:antialiased}
         button,input,select,textarea,.btn{font-family:'Poppins',sans-serif}
         
-        /* === STYLE ADMIN RAPI === */
+        /* === ADMIN STYLE === */
         .app{display:flex;flex-direction:column;min-height:100vh;color:var(--text-admin);background:var(--bg-admin)}
         .sidebar{display:flex;flex-direction:row;width:100%;background:#fff;border-bottom:1px solid var(--border-admin);position:sticky;top:0;z-index:50;overflow-x:auto;padding:10px;align-items:center}
         .sidebar-header{display:none;padding:10px;align-items:center;gap:12px;border-bottom:1px solid #f1f5f9}
@@ -100,9 +91,7 @@
         .topbar{background:#fff;padding:15px;border-bottom:1px solid var(--border-admin);display:flex;flex-direction:column;gap:15px;align-items:flex-start}
         .topbar h2{font-size:18px;font-weight:600;color:#1e293b}
         
-        /* Flex-wrap agar responsif di HP (Jam vs Search) */
         .topbar-right{display:flex;align-items:center;gap:15px;width:100%;justify-content:space-between; flex-wrap:wrap;}
-        
         .search-box{display:flex;align-items:center;gap:10px;background:#f8fafc;padding:8px 12px;border-radius:8px;border:1px solid var(--border-admin);flex:1; min-width: 140px;}
         .search-box input{border:none;background:none;outline:none;font-size:13px;color:#1e293b;width:100%}
         .admin-clock{display:flex;align-items:center;gap:6px;background:#fef2f2;color:var(--primary);padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;}
@@ -180,7 +169,7 @@
             .stats-grid{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-bottom:32px}
         }
         
-        /* === STYLE KARYAWAN (MERAH GELAP & TERANG) === */
+        /* === KARYAWAN STYLE === */
         .mobile-app {
             max-width: 480px; margin: 0 auto;
             background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
@@ -188,35 +177,19 @@
             color: #ffffff;
         }
         
-        .mobile-app .form-input {
-            background: rgba(0, 0, 0, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); color: #ffffff;
-        }
+        .mobile-app .form-input { background: rgba(0, 0, 0, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); color: #ffffff; }
         .mobile-app .form-input::placeholder { color: rgba(255, 255, 255, 0.6); }
         .mobile-app .form-input:focus { border-color: #ffffff; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2); }
         .mobile-app .form-label { color: rgba(255, 255, 255, 0.8); }
         
-        .mobile-app .btn-primary {
-            background: #ffffff; color: #dc2626; border-radius: 12px;
-            font-weight: 700; height: 50px; font-size: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .mobile-app .btn-warning {
-            background: #fef08a; color: #854d0e; border-radius: 12px; font-weight: 700; height: 50px;
-        }
+        .mobile-app .btn-primary { background: #ffffff; color: #dc2626; border-radius: 12px; font-weight: 700; height: 50px; font-size: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .mobile-app .btn-warning { background: #fef08a; color: #854d0e; border-radius: 12px; font-weight: 700; height: 50px; }
 
         .app-header{padding:20px 24px;display:flex;justify-content:space-between;align-items:center}
         .app-logo{display:flex;align-items:center;gap:12px}
-        
-        .brand-logo {
-            background: #ffffff; display: flex; align-items: center; justify-content: center;
-            color: var(--primary); border-radius: 12px; overflow: hidden;
-        }
-        
+        .brand-logo { background: #ffffff; display: flex; align-items: center; justify-content: center; color: var(--primary); border-radius: 12px; overflow: hidden; }
         .header-actions{display:flex;gap:12px}
-        .icon-btn {
-            width:40px;height:40px; background: rgba(0, 0, 0, 0.15);
-            border-radius:12px;display:flex;align-items:center;justify-content:center;
-            color: #ffffff; border:1px solid rgba(255, 255, 255, 0.2); cursor:pointer;
-        }
+        .icon-btn { width:40px;height:40px; background: rgba(0, 0, 0, 0.15); border-radius:12px;display:flex;align-items:center;justify-content:center; color: #ffffff; border:1px solid rgba(255, 255, 255, 0.2); cursor:pointer; }
         
         .time-section{text-align:center;margin:20px 0}
         .digital-clock{font-size:48px;font-weight:700;line-height:1;letter-spacing:-1px; text-shadow: 0 2px 4px rgba(0,0,0,0.2);}
@@ -228,19 +201,12 @@
         
         .scan-status{text-align:center;margin-top:20px;color:rgba(255,255,255,0.8);font-size:13px}
         
-        .location-card {
-            margin:20px; background: rgba(0, 0, 0, 0.15); border-radius:20px;padding:20px;
-            border:1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px);
-        }
+        .location-card { margin:20px; background: rgba(0, 0, 0, 0.15); border-radius:20px;padding:20px; border:1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(5px); }
         .loc-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.8)}
         .map-view{height:100px;background:rgba(0,0,0,0.3);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
         .map-pin-anim{width:20px;height:20px;background:#ffffff;border-radius:50%;border:3px solid var(--primary);box-shadow:0 0 15px rgba(255,255,255,0.8)}
         
-        .bottom-nav {
-            position:fixed;bottom:0;left:0;right:0; background: #7f1d1d;
-            padding:15px 30px;display:flex;justify-content:space-between;
-            border-top:1px solid rgba(255, 255, 255, 0.1); max-width:480px;margin:0 auto;z-index:90;
-        }
+        .bottom-nav { position:fixed;bottom:0;left:0;right:0; background: #7f1d1d; padding:15px 30px;display:flex;justify-content:space-between; border-top:1px solid rgba(255, 255, 255, 0.1); max-width:480px;margin:0 auto;z-index:90; }
         .nav-icon{display:flex;flex-direction:column;align-items:center;gap:4px;color:rgba(255, 255, 255, 0.5);font-size:10px;cursor:pointer;}
         .nav-icon.active{color: #ffffff; font-weight: 600;}
         
@@ -255,7 +221,7 @@
         `;
     }
 
-    // === HTML ADMIN ===
+    // === HTML FORMS ===
     function getAdminHTML() { 
         var loginHtml = "<div id='admin-login-screen' style='position:fixed;inset:0;background:#fef2f2;z-index:9999;display:flex;align-items:center;justify-content:center'><div style='background:#fff;padding:40px;border-radius:16px;box-shadow:0 4px 6px rgba(0,0,0,0.05);width:90%;max-width:400px;text-align:center'><div style='width:60px;height:60px;background:#fef2f2;color:var(--primary);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px'><i data-lucide='lock' style='width:30px;height:30px'></i></div><h2 style='font-size:24px;color:#1e293b;margin-bottom:10px;font-weight:700'>Login Admin</h2><p style='color:#64748b;font-size:14px;margin-bottom:24px'>Masukkan PIN untuk mengakses dashboard</p><div class='form-group'><input type='password' id='admin-pin' class='form-input' placeholder='PIN Default: 123456' style='text-align:center;letter-spacing:5px;font-size:18px'></div><button class='btn btn-primary' onclick='loginAdmin()' style='width:100%;height:48px;font-size:16px;margin-top:10px;justify-content:center'>Masuk Dashboard</button><p style='font-size:12px;margin-top:15px;color:var(--primary);cursor:pointer' onclick='window.location.href=\"?page=employee\"'>Kembali ke Halaman Karyawan</p></div></div>";
         var dashHtml = "<div class='app' id='admin-app-wrapper' style='display:none;'><aside class='sidebar'><div class='sidebar-header'><div class='logo-icon' id='admin-sidebar-logo'><i data-lucide='building-2' style='width:24px;height:24px;color:var(--primary)'></i></div><div class='logo-text'><h1 id='sidebar-title'>Dua Putra Group</h1><p>HR Portal</p></div></div><nav class='nav'><div class='nav-item active' data-page='dashboard' onclick='showPage(\"dashboard\")'><i data-lucide='home'></i><span>Dashboard</span></div><div class='nav-item' data-page='laporan' onclick='showPage(\"laporan\")'><i data-lucide='clipboard-check'></i><span>Rekap Bulanan</span></div><div class='nav-item' data-page='karyawan' onclick='showPage(\"karyawan\")'><i data-lucide='users'></i><span>Data Karyawan</span></div><div class='nav-item' data-page='izin' onclick='showPage(\"izin\")'><i data-lucide='calendar-x'></i><span>Pengajuan Izin</span></div><div class='nav-item' data-page='pengaturan' onclick='showPage(\"pengaturan\")'><i data-lucide='settings'></i><span>Pengaturan</span></div></nav><div class='sidebar-footer'><div class='user'><div class='user-avatar'>HR</div><div class='user-info'>Admin HR<p>Portal Setting</p></div></div></div></aside><main class='main'><div class='topbar'><h2 id='page-title'>Dashboard</h2><div class='topbar-right'><div class='search-box'><i data-lucide='search' style='width:16px;color:var(--text-muted-admin)'></i><input type='text' placeholder='Cari karyawan...'></div><div class='admin-clock'><i data-lucide='clock' style='width:16px'></i><span id='real-time-clock'>...</span></div><div class='topbar-icon' onclick='window.location.href=\"?page=employee\"' title='Log Out Admin' style='cursor:pointer'><i data-lucide='log-out' style='width:20px;color:var(--danger)'></i></div></div></div><div class='content' id='main-content'></div></main></div><div class='modal-overlay' id='modal'></div><div class='toast-container' id='toasts'></div>"; 
@@ -274,18 +240,15 @@
         return html; 
     }
 
-    // === JS ADMIN ===
+    // === JS ADMIN (TIDAK BERUBAH) ===
     function getAdminJS() {
         var js = "";
         js += "var currentPage='dashboard';var employees=[];var attendance=[];var izinList=[];var stats={};var appShifts=[];var compName='Dua Putra Group';var compLogo='';var colors=['blue','green','orange','purple','cyan'];";
         js += "document.addEventListener('DOMContentLoaded',function(){lucide.createIcons(); setInterval(updateAdminClock, 1000); updateAdminClock();});";
         js += "function updateAdminClock(){ var d=new Date(); var e=document.getElementById('real-time-clock'); if(e) e.innerText=d.toLocaleDateString('id-ID',{weekday:'short',day:'numeric',month:'short'})+' - '+d.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}";
-        
         js += "function loginAdmin(){ var pin = document.getElementById('admin-pin').value; var btn = document.querySelector('#admin-login-screen .btn-primary'); btn.innerText='Memeriksa...'; ";
         js += "google.script.run.withSuccessHandler(function(r){ if(r.success){ document.getElementById('admin-login-screen').style.display='none'; document.getElementById('admin-app-wrapper').style.display='flex'; loadData(); } else { alert('PIN Salah! Silakan coba lagi.'); btn.innerText='Masuk Dashboard'; } }).verifyAdminPin(pin); }";
-        
         js += "function loadData(){ google.script.run.withSuccessHandler(function(r){if(typeof r==='object'){compName=r.name||'Dua Putra Group'; compLogo=r.logo||'';}else{compName=r;} document.getElementById('sidebar-title').innerText=compName; if(compLogo){var ic=document.getElementById('admin-sidebar-logo'); if(ic) ic.innerHTML='<img src=\"'+compLogo+'\" style=\"width:100%;height:100%;object-fit:contain\">';} if(currentPage==='pengaturan'){var setEl=document.getElementById('set-comp-name');if(setEl)setEl.value=compName; if(compLogo){var pl=document.getElementById('set-logo-preview'); if(pl){pl.src=compLogo; pl.style.display='block';}}}}).getCompanySettings(); google.script.run.withSuccessHandler(function(r){if(r.success)stats=r.stats;renderPage();}).getStats(); google.script.run.withSuccessHandler(function(r){if(r.success)appShifts=r.data; if(currentPage==='pengaturan')renderPengaturan();}).getShifts(); google.script.run.withSuccessHandler(function(r){if(r.success)izinList=r.data; if(currentPage==='izin')renderIzin();}).getIzinList(); google.script.run.withSuccessHandler(function(r){if(r.success){attendance=r.attendance;renderPage();}}).getAttendanceLog(); google.script.run.withSuccessHandler(function(r){if(r.success)employees=r.employees;renderPage();}).getEmployeeList();}";
-        
         js += "function getColor(i){return colors[i%colors.length];}";
         js += "function getInit(n){if(!n)return'';var p=n.split(' ');if(p.length===1)return p[0].substring(0,2).toUpperCase();return(p[0][0]+p[1][0]).toUpperCase();}";
         js += "function showPage(p){currentPage=p;document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});document.querySelector('[data-page=\"'+p+'\"]').classList.add('active');var t={'dashboard':'Dashboard','laporan':'Rekap Bulanan','karyawan':'Data Karyawan','izin':'Pengajuan Izin','pengaturan':'Pengaturan'};document.getElementById('page-title').textContent=t[p];renderPage();}";
@@ -395,7 +358,7 @@
         return js;
     }
 
-    // === JS KARYAWAN ===
+    // === JS KARYAWAN (FITUR NOTIF DIUPDATE) ===
     function getEmployeeJS() {
         var js = "";
         js += "var currEmp=null;var loc={lat:'',lng:'',alamat:''};var clockInt=null;var compName='Dua Putra Group';var compLogo=''; var myNotifs=[];";
@@ -404,9 +367,15 @@
         js += "function initApp(){ google.script.run.withSuccessHandler(function(r){if(typeof r==='object'){compName=r.name||'Dua Putra Group'; compLogo=r.logo||'';}else{compName=r;} var e1=document.getElementById('app-title'); if(e1)e1.innerText=compName; var e2=document.getElementById('app-logo-title'); if(e2)e2.innerText=compName; updateEmpLogos(); }).getCompanySettings(); showInput(); loadFaceApi(); }";
         js += "function updateEmpLogos(){ var boxes=document.querySelectorAll('.brand-logo'); boxes.forEach(function(b){ if(compLogo) b.innerHTML='<img src=\"'+compLogo+'\" style=\"width:100%;height:100%;object-fit:contain\">'; else b.innerHTML='<i data-lucide=\"briefcase\" style=\"width:60%;height:60%;color:var(--primary)\"></i>'; }); lucide.createIcons(); }";
         
-        js += "function loadNotifs(){ google.script.run.withSuccessHandler(function(r){ myNotifs=r; var unread = myNotifs.some(function(n){ return n.status!=='Pending'; }); if(myNotifs.length>0 && document.getElementById('notif-badge')) { document.getElementById('notif-badge').style.display='block'; } }).getMyIzinHistory(currEmp.nik); }";
+        // --- LOGIKA NOTIFIKASI PINTAR ---
+        js += "function loadNotifs(){ google.script.run.withSuccessHandler(function(r){ myNotifs=r||[]; var badge = document.getElementById('notif-badge'); if(!badge) return; ";
+        js += "var lastCount = parseInt(localStorage.getItem('notif_count_'+currEmp.nik) || '0'); ";
+        js += "var completedNotifs = myNotifs.filter(function(n){ return n.status !== 'Pending'; }); ";
+        js += "if(completedNotifs.length > lastCount){ badge.style.display='block'; } else { badge.style.display='none'; } }).getMyIzinHistory(currEmp.nik); }";
         
-        js += "function showNotifModal(){ var m=document.getElementById('emp-notif-modal'); if(!m){ var d=document.createElement('div'); d.id='emp-notif-modal'; d.className='modal-overlay'; document.getElementById('modal-container').appendChild(d); m=d; } var h='<div class=\"modal\"><div class=\"modal-header\"><span class=\"modal-title\" style=\"color:#000\">Notifikasi Izin</span><button class=\"modal-close\" onclick=\"closeNotifModal()\">&times;</button></div><div class=\"modal-body\" style=\"color:#000;max-height:60vh;overflow-y:auto\">'; if(myNotifs.length===0){ h+='<div style=\"text-align:center;padding:20px;color:gray;font-size:13px\">Belum ada notifikasi.</div>'; }else{ myNotifs.forEach(function(n){ var c=n.status==='Approved'?'#10b981':(n.status==='Rejected'?'#ef4444':'#f59e0b'); var s=n.status==='Approved'?'Disetujui':(n.status==='Rejected'?'Ditolak':'Pending'); h+='<div style=\"padding:12px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;\"><div><div style=\"font-weight:bold;font-size:13px\">'+n.jenis+'</div><div style=\"font-size:11px;color:gray\">Tgl: '+n.tanggal+'</div></div><div style=\"color:'+c+';font-size:11px;font-weight:bold;padding:4px 8px;border-radius:20px;background:rgba(0,0,0,0.05)\">'+s+'</div></div>'; }); } h+='</div></div>'; m.innerHTML=h; m.classList.add('active'); if(document.getElementById('notif-badge')) document.getElementById('notif-badge').style.display='none'; }";
+        js += "function showNotifModal(){ var m=document.getElementById('emp-notif-modal'); if(!m){ var d=document.createElement('div'); d.id='emp-notif-modal'; d.className='modal-overlay'; document.getElementById('modal-container').appendChild(d); m=d; } var h='<div class=\"modal\"><div class=\"modal-header\"><span class=\"modal-title\" style=\"color:#000\">Riwayat Izin</span><button class=\"modal-close\" onclick=\"closeNotifModal()\">&times;</button></div><div class=\"modal-body\" style=\"color:#000;max-height:60vh;overflow-y:auto\">'; if(myNotifs.length===0){ h+='<div style=\"text-align:center;padding:20px;color:gray;font-size:13px\">Belum ada riwayat perizinan.</div>'; }else{ myNotifs.forEach(function(n){ var c=n.status==='Approved'?'#10b981':(n.status==='Rejected'?'#ef4444':'#f59e0b'); var s=n.status==='Approved'?'Disetujui':(n.status==='Rejected'?'Ditolak':'Pending'); h+='<div style=\"padding:12px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center;\"><div><div style=\"font-weight:bold;font-size:13px\">'+n.jenis+'</div><div style=\"font-size:11px;color:gray\">Tgl: '+n.tanggal+'</div></div><div style=\"color:'+c+';font-size:11px;font-weight:bold;padding:4px 8px;border-radius:20px;background:rgba(0,0,0,0.05)\">'+s+'</div></div>'; }); } h+='</div></div>'; m.innerHTML=h; m.classList.add('active'); ";
+        js += "if(document.getElementById('notif-badge')) document.getElementById('notif-badge').style.display='none'; ";
+        js += "var completed = myNotifs.filter(function(n){ return n.status !== 'Pending'; }); localStorage.setItem('notif_count_'+currEmp.nik, completed.length); }";
         
         js += "function closeNotifModal(){ document.getElementById('emp-notif-modal').classList.remove('active'); }";
 
